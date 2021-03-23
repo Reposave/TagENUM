@@ -1,6 +1,7 @@
 #include "tag.h"
 #include <cstdlib> 
 #include <iostream>
+#include <string>
 
 int main (void)
 {
@@ -11,9 +12,13 @@ int main (void)
 		std::cout << "r: Read and process tag file\np: Print all tags\nd: dump/write tags and data to a file called tag.txt\nl: list data for a given tag to cout\nq: quit program\n";
 		
 		std::cin >> userIn;
+		std::cout << std::endl;
 
 	if(userIn=="r" or userIn=="R"){
-		std::cout << "Reading file..." << std::endl;
+		std::cout << "Enter filename..." << std::endl;
+		std::cin >> userIn;
+		
+		DLMARD001::ReadAndParse(userIn);
 	}
 	else if(userIn=="p" or userIn=="P"){
 		std::cout << "Printing tags..." << std::endl;
