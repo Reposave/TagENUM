@@ -26,7 +26,7 @@ int main (void)
 	}
 	else if(userIn=="d" or userIn=="D"){
 		std::cout << "writing to tags.txt" << std::endl;
-		//DLMARD001::DWrite();
+		DLMARD001::DWrite();
 	}
 	else if(userIn=="l" or userIn=="L"){
 		std::cout << "Enter name of Tag..." << std::endl;

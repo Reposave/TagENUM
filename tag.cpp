@@ -111,3 +111,11 @@ void DLMARD001::PrintTags(void){
         }
 
 }
+void DLMARD001::DWrite(void){
+	std::ofstream out ("Data/tags.txt");
+		for (auto& its : Tags) {
+
+                out << "\"" + its.tagName +"\"" << "," << its.NumOfTagPairs <<  "," << "\"" + its.text + "\"" << std::endl;
+        }
+       out.close();
+}
