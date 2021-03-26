@@ -22,12 +22,17 @@ int main (void)
 	}
 	else if(userIn=="p" or userIn=="P"){
 		std::cout << "Printing tags..." << std::endl;
+		DLMARD001::PrintTags();
 	}
 	else if(userIn=="d" or userIn=="D"){
 		std::cout << "writing to tags.txt" << std::endl;
+		//DLMARD001::DWrite();
 	}
 	else if(userIn=="l" or userIn=="L"){
-		std::cout << "listing data for tag x" << std::endl;
+		std::cout << "Enter name of Tag..." << std::endl;
+		std::cin >> userIn;
+		
+		//DLMARD001::List(userIn);
 	}
 	else if(userIn=="q" or userIn=="Q"){
 		std::cout << "Goodbye" << std::endl;

@@ -19,6 +19,9 @@ namespace DLMARD001{
 
 namespace DLMARD001{
 	void ReadAndParse(std::string fileName);
+	void PrintTags(void);
+	void DWrite(void);
+	void List(void);
 }        
 
 #endif

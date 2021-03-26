@@ -24,7 +24,7 @@ void DLMARD001::ReadAndParse(std::string fileName){
 	
 	while (std::getline(in, line)){
 		
-		globalposition = all_words.length();
+		//globalposition = all_words.length();
 		all_words = all_words + line;
 		
 		int tag_open = line.find('<');
@@ -101,10 +101,13 @@ void DLMARD001::ReadAndParse(std::string fileName){
 	std::cout<<"Detected\n";
 	}
 }
-for (auto& its : Tags) {
-
-                std::cout << its.tagName << "\n" << " - " << its.NumOfTagPairs <<  "\n" << " - " << its.text << std::endl;
-        }
 
 	in.close();
+}
+void DLMARD001::PrintTags(void){
+	for (auto& its : Tags) {
+
+                std::cout << "\"" + its.tagName +"\"" << "," << its.NumOfTagPairs <<  "," << "\"" + its.text + "\"" << std::endl;
+        }
+
 }
