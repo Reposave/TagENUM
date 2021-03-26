@@ -10,6 +10,12 @@ namespace DLMARD001{
 		std::string text;
 			};
 		}
+namespace DLMARD001{
+	struct TempStruct{ //Used temporarily to store index positions of tags for string slicing.
+		std::string tagName;
+		int position;
+		};
+}
 
 namespace DLMARD001{
 	void ReadAndParse(std::string fileName);

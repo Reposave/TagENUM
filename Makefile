@@ -15,9 +15,9 @@ tagDriver: tag.o tagDriver.o
 # deletes all the object code files
 clean:
 	@rm -f *.o
-	@rm tagENUM
+	@rm tagENUM.exe
    
 # copies/moves the relevant binaries and/or libraries to the correct folders   
 install:
   
-	@mv tagENUM ~/bin
+	@mv tagENUM.exe ~/bin
