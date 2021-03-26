@@ -9,7 +9,6 @@ std::vector<DLMARD001::TagStruct> Tags;
 
 void DLMARD001::ReadAndParse(std::string fileName){
 	std::ifstream in("Data/"+fileName);
-	//std::cout << fileName;
 	std::string line;
 	std::string all_words; //Stores all text found in the file.
 
@@ -20,7 +19,7 @@ void DLMARD001::ReadAndParse(std::string fileName){
         }
 	
 	std::stack <DLMARD001::TempStruct> s;
-	int globalposition = 0;
+	int globalposition = 0; //used to calculate the appropriate position of Tags after all_words has been emptied.
 	
 	while (std::getline(in, line)){
 		
@@ -29,19 +28,16 @@ void DLMARD001::ReadAndParse(std::string fileName){
 		
 		int tag_open = line.find('<');
 
-		while(tag_open!=std::string::npos){
+		while(tag_open!=std::string::npos){ //If '<' has not been found.
 		
-		std::cout << all_words << std::endl;
+		//std::cout << all_words << std::endl;
 		
-		std::cout << tag_open << std::endl;
+		//std::cout << tag_open << std::endl;
 		
 		if(line.at(tag_open+1)!='/'){
 			int tag_close = line.find('>');
-			std::cout << tag_close << std::endl;
 			
             std::string close_tag = line.substr (tag_open+1,tag_close-(tag_open+1));
-            
-			std::cout << close_tag << std::endl;
 			
 			line.replace(tag_open,1,"*"); //removing "<"
 			line.replace(tag_close,1,"*"); //removing ">"
@@ -49,18 +45,13 @@ void DLMARD001::ReadAndParse(std::string fileName){
 			tag_open = tag_open + globalposition;
 
 			s.push({close_tag,tag_open});
-			std::cout<<"Yes\n";
 		}
 		else{
 			int tag_cloze = 0;
 			
 			tag_cloze = line.find('>');
 			
-			std::cout << tag_cloze << std::endl;
-			
 			std::string cloze_tag = line.substr (tag_open+2,(tag_cloze-(tag_open+2)));
-			
-			std::cout << cloze_tag << std::endl;
 			
 			line.replace(tag_open,1,"*"); //removing "<"
 			line.replace(tag_cloze,1,"*"); //removing ">"
@@ -71,7 +62,7 @@ void DLMARD001::ReadAndParse(std::string fileName){
 			if(s.top().tagName == cloze_tag){
 			bool found = false;
 			
-				int textstart = s.top().position+cloze_tag.length()+2;
+				int textstart = s.top().position+cloze_tag.length()+2; //The start of text after the opening tag.
 				
 				for (auto& it : Tags){
 					
@@ -90,15 +81,9 @@ void DLMARD001::ReadAndParse(std::string fileName){
 					s.pop();
 
 			}
-			
-			std::cout<<"No\n";
 
 		}
 		tag_open = line.find('<'); //First start by finding the first opening tag.
-		
-	//std::cout << line << std::endl;
-	
-	std::cout<<"Detected\n";
 	}
 }
 

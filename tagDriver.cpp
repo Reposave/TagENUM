@@ -19,13 +19,14 @@ int main (void)
 		std::cin >> userIn;
 		
 		DLMARD001::ReadAndParse(userIn);
+		std::cout << "File read!\n";
 	}
 	else if(userIn=="p" or userIn=="P"){
 		std::cout << "Printing tags..." << std::endl;
 		DLMARD001::PrintTags();
 	}
 	else if(userIn=="d" or userIn=="D"){
-		std::cout << "writing to tags.txt" << std::endl;
+		std::cout << "writing to tags.txt in Data folder..." << std::endl;
 		DLMARD001::DWrite();
 	}
 	else if(userIn=="l" or userIn=="L"){
