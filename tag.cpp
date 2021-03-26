@@ -26,10 +26,12 @@ void DLMARD001::ReadAndParse(std::string fileName){
 		
 		globalposition = all_words.length();
 		all_words = all_words + line;
-		std::cout << all_words << std::endl;
+		
 		int tag_open = line.find('<');
 
 		while(tag_open!=std::string::npos){
+		
+		std::cout << all_words << std::endl;
 		
 		std::cout << tag_open << std::endl;
 		
@@ -84,7 +86,7 @@ void DLMARD001::ReadAndParse(std::string fileName){
 				if(!found){
                                                 Tags.push_back({s.top().tagName,1, all_words.substr(textstart,tag_open-textstart)});
                                         } 
-                                        //all_words.replace(s.top().position,((tag_cloze+1)-s.top().position),"");
+                    all_words.replace(s.top().position,((tag_cloze+1)-s.top().position),"");
 					s.pop();
 
 			}
