@@ -8,7 +8,7 @@
 std::vector<DLMARD001::TagStruct> Tags;
 
 void DLMARD001::ReadAndParse(std::string fileName){
-	std::ifstream in("Data/"+fileName);
+	std::ifstream in(fileName);
 	std::string line;
 	std::string all_words; //Stores all text found in the file.
 
@@ -97,7 +97,7 @@ void DLMARD001::PrintTags(void){
 
 }
 void DLMARD001::DWrite(void){
-	std::ofstream out ("Data/tags.txt");
+	std::ofstream out ("tags.txt");
 		for (auto& its : Tags) {
 
                 out << "\"" + its.tagName +"\"" << "," << its.NumOfTagPairs <<  "," << "\"" + its.text + "\"" << std::endl;
