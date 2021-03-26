@@ -119,3 +119,14 @@ void DLMARD001::DWrite(void){
         }
        out.close();
 }
+void DLMARD001::List(std::string tag){
+		
+		for (auto& its : Tags){
+					
+					if(its.tagName == tag){
+						std::cout << "\"" + its.tagName +"\"" << "," << its.NumOfTagPairs <<  "," << "\"" + its.text + "\"" << std::endl;
+						break;
+					}
+	
+}
+}

@@ -32,7 +32,7 @@ int main (void)
 		std::cout << "Enter name of Tag..." << std::endl;
 		std::cin >> userIn;
 		
-		//DLMARD001::List(userIn);
+		DLMARD001::List(userIn);
 	}
 	else if(userIn=="q" or userIn=="Q"){
 		std::cout << "Goodbye" << std::endl;
