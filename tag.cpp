@@ -24,7 +24,7 @@ void DLMARD001::ReadAndParse(std::string fileName){
 	
 	while (std::getline(in, line)){
 		
-		//globalposition = all_words.length();
+		globalposition = all_words.length();
 		all_words = all_words + line;
 		
 		int tag_open = line.find('<');
